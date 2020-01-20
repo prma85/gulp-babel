@@ -1,10 +1,10 @@
 'use strict';
-var gutil = require('gulp-util');
-var through = require('through2');
-var applySourceMap = require('vinyl-sourcemaps-apply');
-var objectAssign = require('object-assign');
-var replaceExt = require('replace-ext');
-var babel = require('babel-core');
+const through = require('through2');
+const applySourceMap = require('vinyl-sourcemaps-apply');
+const objectAssign = require('object-assign');
+const replaceExt = require('replace-ext');
+const babel = require('babel-core');
+const PluginError = require('plugin-error');
 
 module.exports = function (opts) {
 	opts = opts || {};
@@ -16,31 +16,31 @@ module.exports = function (opts) {
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-babel', 'Streaming not supported'));
+			cb(new PluginError('gulp-babel', 'Streaming not supported'));
 			return;
 		}
 
 		try {
-			var fileOpts = objectAssign({}, opts, {
+			const fileOpts = objectAssign({}, opts, {
 				filename: file.path,
 				filenameRelative: file.relative,
 				sourceMap: Boolean(file.sourceMap)
 			});
 
-			var res = babel.transform(file.contents.toString(), fileOpts);
+			const res = babel.transform(file.contents.toString(), fileOpts);
 
 			if (file.sourceMap && res.map) {
 				res.map.file = replaceExt(res.map.file, '.js');
 				applySourceMap(file, res.map);
 			}
 
-			file.contents = new Buffer(res.code);
+			file.contents = Buffer.from(res.code);
 			file.path = replaceExt(file.path, '.js');
 			file.babel = res.metadata;
 
 			this.push(file);
-		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-babel', err, {
+		} catch (error) {
+			this.emit('error', new PluginError('gulp-babel', error, {
 				fileName: file.path,
 				showProperties: false
 			}));

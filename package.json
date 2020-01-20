@@ -1,6 +1,6 @@
 {
   "name": "gulp-babel",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "Turn ES6 code into vanilla ES5 with no runtime required",
   "license": "MIT",
   "repository": "babel/gulp-babel",
@@ -9,6 +9,9 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
+  "contributors": [
+    "Paulo Andrade"
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
@@ -16,7 +19,7 @@
     "test": "xo && mocha"
   },
   "files": [
-    "index.js"
+    "src/index.js"
   ],
   "keywords": [
     "gulpplugin",
@@ -38,16 +41,17 @@
   ],
   "dependencies": {
     "babel-core": "^5.8.19",
-    "gulp-util": "^3.0.0",
-    "object-assign": "^4.0.1",
-    "replace-ext": "0.0.1",
-    "through2": "^2.0.0",
-    "vinyl-sourcemaps-apply": "^0.2.0"
+    "object-assign": "^4.1.1",
+    "plugin-error": "^1.0.1",
+    "replace-ext": "^1.0.0",
+    "through2": "^3.0.1",
+    "vinyl": "^2.2.0",
+    "vinyl-sourcemaps-apply": "^0.2.1"
   },
   "devDependencies": {
-    "gulp-sourcemaps": "^1.1.1",
-    "mocha": "*",
-    "xo": "*"
+    "gulp-sourcemaps": "^2.6.5",
+    "mocha": "^7.0.0",
+    "xo": "^0.25.3"
   },
   "xo": {
     "envs": [
