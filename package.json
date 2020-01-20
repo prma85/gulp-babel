@@ -1,16 +1,15 @@
 {
-  "name": "gulp-babel",
-  "version": "5.4.0",
+  "name": "gulp-babel5",
+  "version": "5.4.1",
   "description": "Turn ES6 code into vanilla ES5 with no runtime required",
   "license": "MIT",
-  "repository": "babel/gulp-babel",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prma85/gulp-babel.git"
   },
+  "author": "Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)",
   "contributors": [
-    "Paulo Andrade"
+    "Paulo Andrade <paulo85br@gmail.com>"
   ],
   "engines": {
     "node": ">=0.10.0"
@@ -40,7 +39,7 @@
     "6to5"
   ],
   "dependencies": {
-    "babel-core": "^5.8.19",
+    "babel-core": "^5.8.38",
     "object-assign": "^4.1.1",
     "plugin-error": "^1.0.1",
     "replace-ext": "^1.0.0",
@@ -58,5 +57,10 @@
       "node",
       "mocha"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/babel/gulp-babel/issues"
+  },
+  "homepage": "https://github.com/babel/gulp-babel#readme",
+  "main": "main/index.js"
 }
